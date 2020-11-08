@@ -1,22 +1,36 @@
 {
-  "name": "013_idea-source",
+  "name": "013_pensieve",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "migrate": "yarn migrate:save && yarn migrate:up",
+    "migrate:save": "prisma migrate save --name pensieve --experimental",
+    "migrate:up": "prisma migrate up --experimental",
+    "postmigrate": "prisma generate",
+    "postinstall": "prisma generate",
+    "generate": "prisma generate"
   },
   "dependencies": {
     "@chakra-ui/core": "^0.8.0",
     "@emotion/core": "^10.1.1",
     "@emotion/styled": "^10.0.27",
+    "@prisma/client": "^2.10.2",
+    "axios": "^0.21.0",
     "emotion-theming": "^10.0.27",
-    "next": "10.0.0",
+    "framer-motion": "2.9.4",
+    "next": "10.0.1",
+    "next-auth": "^3.1.0",
+    "next-connect": "^0.9.1",
     "react": "17.0.1",
-    "react-dom": "17.0.1"
+    "react-dom": "17.0.1",
+    "react-query": "^2.26.2"
   },
   "devDependencies": {
+    "@prisma/cli": "^2.10.2",
+    "@types/next-auth": "^3.1.14",
     "@types/node": "^14.14.6",
     "@types/react": "^16.9.55",
     "postcss-flexbugs-fixes": "^5.0.0",
